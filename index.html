@@ -1,1 +1,378 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SCAU Smart Orchard Lab 402：面向智慧果园的视觉-语言-动作机器人研究与开放平台。">
+  <meta name="theme-color" content="#07130f">
+  <meta property="og:title" content="SCAU Smart Orchard Lab 402">
+  <meta property="og:description" content="从遥操作数据到具身策略，构建面向真实果园的 VLA 机器人平台。">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/tron2-lychee-poster.jpg">
+  <title>SCAU Smart Orchard Lab 402 · Orchard VLA</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
 
+  <header class="site-header" data-header>
+    <div class="container nav-wrap">
+      <a class="brand" href="#top" aria-label="返回首页">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" role="img">
+            <path d="M24 39C15.5 34.5 10.7 27.5 11.5 16.7c7.7-.8 13.8 1.5 17.8 7 3-3.8 6.2-5.8 10.1-6.3-.8 10-6 17.1-15.4 21.6Z"/>
+            <path class="brand-vein" d="M23.4 38.3c.8-9.2-.8-17-6.2-23.1m6.8 21.7c3-7 6.9-11.6 12.2-14.7"/>
+          </svg>
+        </span>
+        <span>
+          <strong>SCAU · LAB 402</strong>
+          <small>SMART ORCHARD ROBOTICS</small>
+        </span>
+      </a>
+
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-button>
+        <span></span><span></span><span></span>
+        <span class="sr-only">打开导航</span>
+      </button>
+
+      <nav id="site-nav" class="site-nav" aria-label="主导航" data-nav>
+        <a href="#overview">项目概览</a>
+        <a href="#demo">采摘 Demo</a>
+        <a href="#pipeline">技术路线</a>
+        <a href="#research">研究方向</a>
+        <a href="#open-source">开放平台</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="top" class="hero">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-glow hero-glow-one" aria-hidden="true"></div>
+      <div class="hero-glow hero-glow-two" aria-hidden="true"></div>
+
+      <div class="container hero-layout">
+        <div class="hero-copy reveal">
+          <div class="eyebrow">
+            <span class="pulse-dot"></span>
+            VLA FOR INTELLIGENT ORCHARD ROBOTICS
+          </div>
+          <h1>
+            让机器人理解果园，<br>
+            <span>也理解动作。</span>
+          </h1>
+          <p class="hero-lead">
+            面向真实果园环境，构建从遥操作数据、标注清洗、π0.5微调到机器人部署评测的
+            视觉—语言—动作技术栈。
+          </p>
+          <p class="hero-en">
+            From teleoperation data to embodied policy deployment — an open VLA stack for orchard manipulation.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#demo">
+              <span>观看采摘 Demo</span>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6"/></svg>
+            </a>
+            <a class="button button-secondary" href="https://github.com/SCAU-Smart-Orchard-Lab-402/VLA" target="_blank" rel="noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.87c-2.78.6-3.37-1.18-3.37-1.18-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.35 1.09 2.92.83.09-.65.35-1.09.64-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.58 9.58 0 0 1 12 6.82c.85 0 1.71.11 2.51.34 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.86v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+              <span>访问 GitHub</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-system reveal" aria-label="实验室VLA系统结构示意">
+          <div class="system-orbit orbit-one"></div>
+          <div class="system-orbit orbit-two"></div>
+          <div class="system-core">
+            <span>π0.5</span>
+            <strong>VLA POLICY</strong>
+          </div>
+          <div class="system-node node-camera">
+            <span class="node-icon">01</span>
+            <div><small>PERCEPTION</small><strong>3-View Vision</strong></div>
+          </div>
+          <div class="system-node node-language">
+            <span class="node-icon">02</span>
+            <div><small>INSTRUCTION</small><strong>Language Task</strong></div>
+          </div>
+          <div class="system-node node-action">
+            <span class="node-icon">03</span>
+            <div><small>CONTROL</small><strong>Action Chunk</strong></div>
+          </div>
+          <div class="system-node node-robot">
+            <span class="node-icon">04</span>
+            <div><small>EMBODIMENT</small><strong>TRON2 Robot</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container hero-meta reveal">
+        <div><span>ROBOT</span><strong>TRON2</strong></div>
+        <div><span>POLICY</span><strong>π0.5</strong></div>
+        <div><span>DATA</span><strong>LeRobot</strong></div>
+        <div><span>VISION</span><strong>3 Cameras</strong></div>
+      </div>
+    </section>
+
+    <section id="overview" class="section overview-section">
+      <div class="container split-heading reveal">
+        <div>
+          <span class="section-index">01 · OVERVIEW</span>
+          <h2>从一个荔枝采摘 Demo，<br>搭建实验室的VLA底座。</h2>
+        </div>
+        <div class="section-intro">
+          <p>
+            SCAU Smart Orchard Lab 402聚焦智慧果园机器人研究。我们以荔枝采摘为首个真实任务，
+            将机器人、数据平台和基础模型连接为一条可复现、可评测、可继续开发的工程链路。
+          </p>
+          <p>
+            当前目标不是展示单一算法，而是建立一套能够迁移到其他果实、其他机器人和其他策略模型的
+            实验室基础平台。
+          </p>
+        </div>
+      </div>
+
+      <div class="container principle-grid">
+        <article class="principle-card reveal">
+          <span class="card-number">01</span>
+          <h3>Data First</h3>
+          <p>同步记录多路视觉、机器人状态和专家动作，以统一数据规范连接采集、标注、清洗和训练。</p>
+          <span class="card-tag">多模态数据闭环</span>
+        </article>
+        <article class="principle-card reveal">
+          <span class="card-number">02</span>
+          <h3>Policy Ready</h3>
+          <p>以π0.5为首个策略基线，明确模型输入、动作语义、归一化统计和TRON2执行边界。</p>
+          <span class="card-tag">可替换策略接口</span>
+        </article>
+        <article class="principle-card reveal">
+          <span class="card-number">03</span>
+          <h3>Robot Safe</h3>
+          <p>将仿真、离线推理、动作安全门和真机小幅验证分级，避免把模型输出直接连接到硬件。</p>
+          <span class="card-tag">分级部署评测</span>
+        </article>
+      </div>
+    </section>
+
+    <section id="demo" class="section demo-section">
+      <div class="container demo-layout">
+        <div class="demo-copy reveal">
+          <span class="section-index light">02 · ROBOT DEMO</span>
+          <h2>TRON2荔枝采摘实验</h2>
+          <p>
+            视频记录TRON2在实验室模拟果园场景中的荔枝采摘过程。机械臂在枝叶遮挡和密集果实环境中
+            执行接近、夹取、移动与收集动作，为后续的数据采集、失败分析和VLA策略部署提供任务基础。
+          </p>
+          <div class="demo-notes">
+            <div>
+              <span class="note-mark"></span>
+              <p><strong>真实任务场景</strong><small>枝叶遮挡、果实密集、目标细小</small></p>
+            </div>
+            <div>
+              <span class="note-mark"></span>
+              <p><strong>双臂机器人平台</strong><small>结合头部与腕部视觉观测</small></p>
+            </div>
+            <div>
+              <span class="note-mark"></span>
+              <p><strong>面向闭环验证</strong><small>持续记录成功、空抓与重试过程</small></p>
+            </div>
+          </div>
+          <p class="demo-disclaimer">
+            此视频用于展示实验任务与硬件过程，不单独代表自主策略成功率或完整基准结果。
+          </p>
+        </div>
+
+        <div class="video-stage reveal">
+          <div class="video-label">
+            <span class="live-dot"></span>
+            LAB DEMO
+            <span>1.5× SPEED</span>
+          </div>
+          <div class="video-shell">
+            <video
+              controls
+              playsinline
+              preload="metadata"
+              poster="assets/tron2-lychee-poster.jpg"
+              data-demo-video
+              aria-label="TRON2荔枝采摘实验视频">
+              <source src="assets/tron2-lychee-demo-1.5x.mp4" type="video/mp4">
+              您的浏览器不支持视频播放。
+            </video>
+          </div>
+          <div class="video-caption">
+            <span>TRON2 · LYCHEE PICKING</span>
+            <span>LAB 402 / 2026</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pipeline" class="section pipeline-section">
+      <div class="container centered-heading reveal">
+        <span class="section-index">03 · PIPELINE</span>
+        <h2>一条可复现的VLA实验链路</h2>
+        <p>将供应商工具、开放数据格式和实验室规范组合成可检查、可替换的模块。</p>
+      </div>
+
+      <div class="container pipeline">
+        <article class="pipeline-step reveal">
+          <div class="step-top"><span>01</span><small>TELEOPERATION</small></div>
+          <h3>遥操作示范</h3>
+          <p>由操作者完成安全、连贯的荔枝采摘示范，定义任务边界和成功标准。</p>
+          <strong>PICO · TRON2</strong>
+        </article>
+        <article class="pipeline-step reveal">
+          <div class="step-top"><span>02</span><small>RECORDING</small></div>
+          <h3>同步数据采集</h3>
+          <p>同步记录头部、双腕相机、关节状态、夹爪状态和机器人动作。</p>
+          <strong>MCAP · 3 Views</strong>
+        </article>
+        <article class="pipeline-step reveal">
+          <div class="step-top"><span>03</span><small>DATA QA</small></div>
+          <h3>标注与清洗</h3>
+          <p>检查掉帧和时序，区分成功、空抓、滑落与重试，形成可靠训练样本。</p>
+          <strong>Annotation · QA</strong>
+        </article>
+        <article class="pipeline-step reveal">
+          <div class="step-top"><span>04</span><small>TRAINING</small></div>
+          <h3>π0.5微调</h3>
+          <p>导出LeRobot数据，计算归一化统计，并使用任务配置完成策略微调。</p>
+          <strong>LeRobot · OpenPI</strong>
+        </article>
+        <article class="pipeline-step reveal">
+          <div class="step-top"><span>05</span><small>DEPLOYMENT</small></div>
+          <h3>策略部署</h3>
+          <p>GPU策略服务生成动作块，TRON2运行时完成观测、映射和平滑执行。</p>
+          <strong>Policy Server · Runtime</strong>
+        </article>
+        <article class="pipeline-step reveal">
+          <div class="step-top"><span>06</span><small>EVALUATION</small></div>
+          <h3>闭环评测</h3>
+          <p>以任务成功、空抓、滑落和恢复为核心指标，保存全过程实验证据。</p>
+          <strong>Metrics · Recovery</strong>
+        </article>
+      </div>
+    </section>
+
+    <section id="research" class="section research-section">
+      <div class="container research-layout">
+        <div class="research-heading reveal">
+          <span class="section-index light">04 · RESEARCH</span>
+          <h2>研究方向</h2>
+          <p>围绕真实果园中的感知不确定性、动作执行和任务反馈，建设可持续迭代的具身智能研究平台。</p>
+        </div>
+
+        <div class="research-list">
+          <article class="research-item reveal">
+            <span>01</span>
+            <div>
+              <h3>Data-centric VLA</h3>
+              <p>多模态采集、时序标注、异常检测、数据清洗与失败数据利用。</p>
+            </div>
+            <small>数据驱动VLA</small>
+          </article>
+          <article class="research-item reveal">
+            <span>02</span>
+            <div>
+              <h3>Orchard Perception</h3>
+              <p>枝叶遮挡下的果实、果梗、采摘点和运动状态理解。</p>
+            </div>
+            <small>果园环境感知</small>
+          </article>
+          <article class="research-item reveal">
+            <span>03</span>
+            <div>
+              <h3>Embodied Policy</h3>
+              <p>视觉语言动作模型微调、动作块执行、长时序任务和失败恢复。</p>
+            </div>
+            <small>具身策略学习</small>
+          </article>
+          <article class="research-item reveal">
+            <span>04</span>
+            <div>
+              <h3>Safe Deployment</h3>
+              <p>机器人接口解耦、仿真验证、动作联锁和可复现真机评测。</p>
+            </div>
+            <small>安全部署体系</small>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="open-source" class="section open-section">
+      <div class="container open-panel reveal">
+        <div class="open-copy">
+          <span class="section-index">05 · OPEN PLATFORM</span>
+          <h2>从一个项目，走向实验室开放平台。</h2>
+          <p>
+            我们正在建立统一的代码、数据和实验管理框架。VLA、SLAM与Learning方向将通过独立仓库协作，
+            由稳定基线、接口文档和评测记录共同支撑新成员复现与二次开发。
+          </p>
+          <div class="repo-actions">
+            <a class="button button-dark" href="https://github.com/SCAU-Smart-Orchard-Lab-402" target="_blank" rel="noreferrer">
+              浏览实验室GitHub
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6"/></svg>
+            </a>
+            <a class="text-link" href="https://github.com/SCAU-Smart-Orchard-Lab-402/VLA" target="_blank" rel="noreferrer">
+              VLA Repository <span>↗</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="stack-card" aria-label="开放平台分层">
+          <div class="stack-row">
+            <span>APPLICATION</span>
+            <strong>Lychee Picking · Orchard Tasks</strong>
+          </div>
+          <div class="stack-row">
+            <span>POLICY</span>
+            <strong>π0.5 · VLA · Recovery</strong>
+          </div>
+          <div class="stack-row">
+            <span>DATA</span>
+            <strong>LeRobot · Annotation · Data QA</strong>
+          </div>
+          <div class="stack-row">
+            <span>ROBOT</span>
+            <strong>TRON2 · Cameras · Grippers</strong>
+          </div>
+          <div class="stack-foundation">
+            SCAU SMART ORCHARD LAB 402
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand footer-brand" href="#top">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><path d="M24 39C15.5 34.5 10.7 27.5 11.5 16.7c7.7-.8 13.8 1.5 17.8 7 3-3.8 6.2-5.8 10.1-6.3-.8 10-6 17.1-15.4 21.6Z"/><path class="brand-vein" d="M23.4 38.3c.8-9.2-.8-17-6.2-23.1m6.8 21.7c3-7 6.9-11.6 12.2-14.7"/></svg>
+          </span>
+          <span><strong>SCAU · LAB 402</strong><small>SMART ORCHARD ROBOTICS</small></span>
+        </a>
+        <p>面向智慧果园的机器人感知、决策与具身智能研究。</p>
+      </div>
+      <div class="footer-links">
+        <a href="#overview">项目概览</a>
+        <a href="#demo">采摘Demo</a>
+        <a href="#pipeline">技术路线</a>
+        <a href="#research">研究方向</a>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/SCAU-Smart-Orchard-Lab-402" target="_blank" rel="noreferrer">GitHub Organization ↗</a>
+        <a href="https://github.com/SCAU-Smart-Orchard-Lab-402/VLA" target="_blank" rel="noreferrer">VLA Repository ↗</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© <span data-year>2026</span> SCAU Smart Orchard Lab 402</span>
+      <span>Research website · Work in progress</span>
+    </div>
+  </footer>
+</body>
+</html>
